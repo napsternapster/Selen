@@ -1,4 +1,4 @@
-package com.eon.aqa.tests;
+package com.eon.aqa.qa;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,5 +35,7 @@ public class BasePage {
         public String getPAGE_URL() {return PAGE_URL;}
 
         public String getPAGE_TITLE() {return PAGE_TITLE;}
+
+
 }
 

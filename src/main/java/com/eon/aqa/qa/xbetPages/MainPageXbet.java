@@ -1,13 +1,20 @@
-package com.eon.aqa.tests.pages;
+package com.eon.aqa.qa.xbetPages;
 
-import com.eon.aqa.tests.BasePage;
+import com.eon.aqa.qa.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static org.testng.Assert.assertEquals;
 
-public class MainPage_1xbetua extends BasePage{
+public class MainPageXbet extends BasePage {
+
+    public MainPageXbet(WebDriver driver) {
+        super(driver);
+        this.PAGE_TITLE = "Ставки на спорт онлайн | Букмекерская контора 1XBET.COM";
+        this.PAGE_URL = "https://1xbetua.com/";
+
+    }
 
     //Верхний блок (регистрация, авторизакция)
 
@@ -78,9 +85,37 @@ public class MainPage_1xbetua extends BasePage{
     @FindBy(xpath = ".//*[@id='loc_info']/div[4]/div/ul/li[49]/a") WebElement field_language_iq;
     @FindBy(xpath = ".//*[@id='loc_info']/div[4]/div/ul/li[50]/a") WebElement field_language_uz;
 
+//основное меню
+    //Sports
+    @FindBy(id = "line_href") WebElement top_menu_sports;
+    @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[2]/ul/li/a[1]") WebElement sub_sports_matchday;
+    @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[2]/ul/li/a[2]") WebElement sub_sports_bet_team;
+    @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[2]/ul/li/a[3]") WebElement sub_sports_bet_tournam;
+    @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[2]/ul/li/a[4]") WebElement sub_sports_constructor;
+    @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[2]/ul/li/a[5]") WebElement sub_sports_bet_exchange;
+    @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[2]/ul/li/a[6]") WebElement sub_sports_digital_sp_tech;
+
+    //Live
+    @FindBy(id = "live_hreff") WebElement top_menu_live;
+    @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[3]/ul/li/a[1]") WebElement sub_live_bet_team;
+    @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[3]/ul/li/a[2]") WebElement sub_live_cockfight;
+    @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[3]/ul/li/a[3]") WebElement sub_live_multi_live;
+    @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[3]/ul/li/a[4]") WebElement sub_live_live_previews;
+    @FindBy(xpath = "..//*[@id='games_top_menu']/ul/li[3]/ul/li/a[5]") WebElement sub_live_eSprots;
+
+    //Promotions
+    @FindBy(id = "share") WebElement top_menu_promotions;
+    @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[4]/div/div/a[1]") WebElement sub_promo_fifa;
+    @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[4]/div/div/a[2]") WebElement sub_promo_seria_a;
+    @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[4]/div/div/a[3]") WebElement sub_promo_lucky_day;
+
+    //Slots
+    @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[5]/a") WebElement top_menu_slots;
+
+    //Banners
 
 
-    
+
 
 
 
@@ -90,16 +125,15 @@ public class MainPage_1xbetua extends BasePage{
 //    @FindBy(className = "curlangDropTop") WebElement field_language;
 //    @FindBy(className = "curlangDropTop") WebElement field_language;
 
-    public MainPage_1xbetua(WebDriver driver) {
-        super(driver);
-        this.PAGE_TITLE = "Ставки на спорт онлайн | Букмекерская контора 1XBET.COM";
-        this.PAGE_URL = "https://1xbetua.com/";
 
-    }
 
-    public void ChangeLanguage(){
+    public void changeLanguage(){
         clickElement(field_language);
         clickElement(field_language_ua);
+    }
+
+    public void checkBanners(String text){
+
     }
 
 
