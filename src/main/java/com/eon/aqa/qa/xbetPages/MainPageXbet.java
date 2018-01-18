@@ -133,6 +133,7 @@ public class MainPageXbet extends BasePage {
         clickElement(field_language_ua);
     }
 
+
     public void checkBanners(String text){
 
     }
