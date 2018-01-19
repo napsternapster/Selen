@@ -1,11 +1,16 @@
 package com.eon.aqa.qa.xbetPages;
 
 import com.eon.aqa.qa.BasePage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
 
 public class MainPageXbet extends BasePage {
 
@@ -26,9 +31,12 @@ public class MainPageXbet extends BasePage {
     @FindBy(className = "callbackTLBut") WebElement button_callback;
 
     @FindBy(xpath = ".//*[@id='user-money']/div/div/a/div") WebElement field_balance_acc;
+
     @FindBy(className = "up-funds-button-green") WebElement button_donate_green;
     @FindBy(id = "uMessage") WebElement button_message_top;
-    @FindBy(xpath = ".//*[@id='loginout']/span[3]/a")  WebElement button_special_cabinet;
+    public @FindBy(xpath = ".//*[@id='loginout']/span[3]/a")  WebElement button_special_cabinet;
+    @FindBy(css = ".lk_header_options_item.lk_header_options_exit.exitLink>a")  WebElement field_logOut_top;
+
     @FindBy(className = "curcoefDropTop")  WebElement button_settings_top;
     @FindBy(className = "timeButTopFl")  WebElement button_choose_time;
     @FindBy(className = "curlangDropTop") WebElement field_language;
@@ -118,7 +126,11 @@ public class MainPageXbet extends BasePage {
 
 
 
-
+    //Login
+    @FindBy(className = "loginDropTop") WebElement button_login_top;
+    @FindBy(id = "userLogin") WebElement field_userLogin_top;
+    @FindBy(id = "userPassword") WebElement field_userPassword_top;
+    @FindBy(id = "userConButton") WebElement button_userEnter_top;
 
 
     @FindBy(className = "curloginDropTop") WebElement field_login_ua;
@@ -126,7 +138,15 @@ public class MainPageXbet extends BasePage {
 //    @FindBy(className = "curlangDropTop") WebElement field_language;
 //    @FindBy(className = "curlangDropTop") WebElement field_language;
 
+   @FindBy(xpath = "html/body/div[6]/div[3]/div/button[1]") WebElement button_logOut_yes;
 
+
+    public void login(String email, String password){
+        clickLogin();
+        setText_PasswordlLogin(password);
+        setText_EmailLogin(email);
+
+    }
 
     public void changeLanguage(){
         clickElement(field_language);
@@ -136,6 +156,39 @@ public class MainPageXbet extends BasePage {
 
     public void checkBanners(String text){
 
+    }
+
+    public void clickLogin(){
+        clickElement(button_login_top);
+    }
+
+
+
+    public void setText_PasswordlLogin(String text){
+        setElementText(field_userPassword_top, text);
+    }
+
+    public void setText_EmailLogin(String text){
+        setElementText(field_userLogin_top, text);
+    }
+
+    public void clickEnterButton(){
+        clickElement(button_userEnter_top);
+    }
+
+
+
+    public void moveToSpecialCabinet(){
+        Actions builder = new Actions(driver);
+        builder.moveToElement(button_special_cabinet).build().perform();
+    }
+
+    public void clickLogOut(){
+        clickElement(field_logOut_top);
+    }
+
+    public void clickYesButton(){
+        clickElement(button_logOut_yes);
     }
 
 

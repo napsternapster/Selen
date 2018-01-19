@@ -1,5 +1,7 @@
 package com.eon.aqa.qa;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -35,6 +37,15 @@ public class BasePage {
         public String getPAGE_URL() {return PAGE_URL;}
 
         public String getPAGE_TITLE() {return PAGE_TITLE;}
+
+    public boolean isElementPresent(WebElement element) {
+        try {
+            driver.findElement((By) element);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
 
 
 }

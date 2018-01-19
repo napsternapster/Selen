@@ -1,4 +1,4 @@
-
+package com.eon.aqa.tests;
 
 import com.eon.aqa.qa.xbetPages.DriverFactory;
 import com.eon.aqa.qa.xbetPages.MainPageXbet;
@@ -11,10 +11,11 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.eon.aqa.qa.xbetPages.DriverFactory.BrowserType.*;
+import static com.eon.aqa.qa.xbetPages.DriverFactory.BrowserType.CHROME;
+import static com.eon.aqa.qa.xbetPages.DriverFactory.BrowserType.FIREFOX;
 
 public class RegistrationTest {
-    DriverFactory.BrowserType type = FIREFOX;
+    DriverFactory.BrowserType type = CHROME;
     MainPageXbetUA mainPageXbetUA;
     WebDriver driver;
     MainPageXbet mainPageXbet;

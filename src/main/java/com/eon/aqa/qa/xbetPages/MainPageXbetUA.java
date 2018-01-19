@@ -15,7 +15,7 @@ import static org.testng.Assert.assertTrue;
 public class MainPageXbetUA extends BasePage {
 
     //Registration
-    @FindBy(className = "register_button_main")      WebElement button_main_registration;
+    public @FindBy(className = "register_button_main")      WebElement button_main_registration;
     //By Phone number
     @FindBy(xpath = ".//*[@id='reg_tabs']/li[2]/a")  WebElement button_By_PhoneNum_Reg;
     @FindBy(id = "reg_tel_num")  WebElement field_PhoneNumber_ByPhone;
@@ -119,6 +119,8 @@ public class MainPageXbetUA extends BasePage {
     public void click_special_cab(){
         clickElement(button_special_cabinet);
     }
+
+
 
 
 
