@@ -16,25 +16,6 @@ import java.util.Arrays;
 
 public class DriverFactory {
 
-//    public static void proxyUsingChromeDriver()
-//    {
-//        //Set the location of the ChromeDriver
-//        System.setProperty("webdriver.chrome.driver","C:\\Users\\localuser\\Desktop\\IdeaProjects\\chromedriver.exe");
-//        //Create a new desired capability
-//        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-//        // Create a new proxy object and set the proxy
-//        Proxy proxy = new Proxy();
-//        proxy.setHttpProxy("5.148.150.155:8080");
-//        //Add the proxy to our capabilities
-//        capabilities.setCapability("proxy", proxy);
-//        //Start a new ChromeDriver using the capabilities object we created and added the proxy to
-//        ChromeDriver Driver = new ChromeDriver(capabilities);
-//
-//    }
-
-
-
-
     public enum BrowserType{
         FIREFOX,
         CHROME,
@@ -46,18 +27,14 @@ public class DriverFactory {
     public static WebDriver getDriver(BrowserType type){
         WebDriver driver = null;
         DesiredCapabilities capabilities=null;
-        Proxy proxy = new Proxy();
 
         switch (type){
             case CHROME:
+//                ChromeOptions options = new ChromeOptions();
+//                options.addArguments("--proxy-server=109.198.192.205:53281");
                 System.setProperty("webdriver.chrome.driver","C:\\Users\\localuser\\Desktop\\IdeaProjects\\chromedriver.exe");
                 driver = new ChromeDriver();
-//                proxy.setHttpProxy("5.148.150.155:8080");
-//                capabilities.setCapability("proxy", proxy);
-//                ChromeOptions options = new ChromeOptions();
-//                options.addExtensions(new File("C:\\Users\\localuser\\Desktop\\IdeaProjects\\chromedriver.exe"));
-//                capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-//                driver = new ChromeDriver(capabilities);
+//                driver = new ChromeDriver(options);
 
                 break;
             case FIREFOX:
@@ -78,4 +55,18 @@ public class DriverFactory {
         }
         return driver;
     }
+
+    public enum Sites {
+        UA,
+        CN,
+        CM,
+        IR,
+        KZ
+    }
+
+//    public static String getSites(){
+//
+//    }
+
+
 }

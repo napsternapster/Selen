@@ -9,6 +9,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
+import java.util.List;
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
@@ -29,17 +31,16 @@ public class MainPageXbet extends BasePage {
     @FindBy(className = "telegram_icon") WebElement button_telegram;
     @FindBy(className = "paymentsTLBut") WebElement button_paymant;
     @FindBy(className = "callbackTLBut") WebElement button_callback;
-
     @FindBy(xpath = ".//*[@id='user-money']/div/div/a/div") WebElement field_balance_acc;
-
+    @FindBy(xpath = ".//*[@id='wednesdayX2']/div[1]") WebElement closeBanner_button;
     @FindBy(className = "up-funds-button-green") WebElement button_donate_green;
     @FindBy(id = "uMessage") WebElement button_message_top;
     public @FindBy(xpath = ".//*[@id='loginout']/span[3]/a")  WebElement button_special_cabinet;
     @FindBy(css = ".lk_header_options_item.lk_header_options_exit.exitLink>a")  WebElement field_logOut_top;
-
     @FindBy(className = "curcoefDropTop")  WebElement button_settings_top;
     @FindBy(className = "timeButTopFl")  WebElement button_choose_time;
     @FindBy(className = "curlangDropTop") WebElement field_language;
+
 
     //Языки
     @FindBy(xpath = ".//*[@id='loc_info']/div[4]/div/ul/li[1]/a") WebElement field_language_ae;
@@ -95,7 +96,7 @@ public class MainPageXbet extends BasePage {
     @FindBy(xpath = ".//*[@id='loc_info']/div[4]/div/ul/li[51]/a") WebElement field_language_uz;
 
 //основное меню
-    //Sports
+    //Sports(Line)
     @FindBy(id = "line_href") WebElement top_menu_sports;
     @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[2]/ul/li/a[1]") WebElement sub_sports_matchday;
     @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[2]/ul/li/a[2]") WebElement sub_sports_bet_team;
@@ -105,7 +106,7 @@ public class MainPageXbet extends BasePage {
     @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[2]/ul/li/a[6]") WebElement sub_sports_digital_sp_tech;
 
     //Live
-    @FindBy(id = "live_hreff") WebElement top_menu_live;
+    @FindBy(id = "live_href") WebElement top_menu_live;
     @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[3]/ul/li/a[1]") WebElement sub_live_bet_team;
     @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[3]/ul/li/a[2]") WebElement sub_live_cockfight;
     @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[3]/ul/li/a[3]") WebElement sub_live_multi_live;
@@ -121,9 +122,14 @@ public class MainPageXbet extends BasePage {
     //Slots
     @FindBy(xpath = ".//*[@id='games_top_menu']/ul/li[5]/a") WebElement top_menu_slots;
 
-    //Banners
+    //1xGames
+    @FindBy(css = ".menu_button.menu_dropdown  a[href='ourgames']") WebElement top_menu_1xgames;
 
+    //1XBonus
+    @FindBy(css = ".menu_button  a[href='bonus/']") WebElement top_menu_1xbonus;
 
+    //1XCasino
+    @FindBy(css = ".menu_button.menu_dropdown  a[href='casino/']") WebElement top_menu_live_casino;
 
 
     //Login
@@ -139,6 +145,10 @@ public class MainPageXbet extends BasePage {
 //    @FindBy(className = "curlangDropTop") WebElement field_language;
 
    @FindBy(xpath = "html/body/div[6]/div[3]/div/button[1]") WebElement button_logOut_yes;
+   @FindBy(xpath = ".//*[@id='allSport']/div//a") List<WebElement> allSport;
+
+//---------------------------------------------------------------------//
+    @FindBy(xpath = "//*[@id=\"loc_info\"]/div[2]/a[4]/b/text()") WebElement bonus_button;
 
 
     public void login(String email, String password){
@@ -190,6 +200,38 @@ public class MainPageXbet extends BasePage {
     public void clickYesButton(){
         clickElement(button_logOut_yes);
     }
+
+    public void clickCloseBanner(){
+        clickElement(closeBanner_button);
+    }
+
+    public void cliclLivePage(){
+        clickElement(top_menu_live);
+    }
+
+    public void checkBonus(){
+        bonus_button.getText();
+        assertEquals(bonus_button.getText(), "UAH");
+    }
+
+    public void checkTopMenu() throws InterruptedException {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(top_menu_sports).perform();
+        Thread.sleep(2000);
+        actions.moveToElement(top_menu_live).perform();
+        Thread.sleep(2000);
+        actions.moveToElement(top_menu_slots).perform();
+        Thread.sleep(2000);
+        actions.moveToElement(top_menu_live_casino).perform();
+        Thread.sleep(2000);
+        actions.moveToElement(top_menu_1xgames).perform();
+        Thread.sleep(2000);
+        actions.moveToElement(top_menu_1xbonus).perform();
+        Thread.sleep(2000);
+    }
+
+
+
 
 
 

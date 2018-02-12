@@ -1,10 +1,9 @@
 package com.eon.aqa.qa;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.testng.Assert.assertEquals;
 
@@ -12,6 +11,7 @@ public class BasePage {
         public String PAGE_URL;
         public String PAGE_TITLE;
         public WebDriver driver;
+        public WebDriverWait wait;
 
         public BasePage(WebDriver driver) {this.driver = driver;}
 
@@ -44,6 +44,27 @@ public class BasePage {
             return true;
         } catch (NoSuchElementException e) {
             return false;
+        }
+    }
+
+    public WebElement getVisibility(By locator, int timeout) {
+        WebElement element = null;
+        wait = new WebDriverWait(driver, timeout);
+        element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return element;
+    }
+
+    public void clickElementWhenClickable(By locator, int timeout) {
+        WebElement element = null;
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+        element.click();
+    }
+
+    public void scrollToElement(WebElement el) {
+        if (driver instanceof JavascriptExecutor) {
+            ((JavascriptExecutor) driver)
+                    .executeScript("arguments[0].scrollIntoView(true);", el);
         }
     }
 

@@ -1,4 +1,3 @@
-package com.eon.aqa.tests;
 import com.eon.aqa.qa.data.GetScreenShot;
 import com.eon.aqa.qa.xbetPages.DriverFactory;
 import com.eon.aqa.qa.xbetPages.MainPageXbet;
@@ -13,12 +12,14 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-import static com.eon.aqa.qa.xbetPages.DriverFactory.BrowserType.CHROME;
-import static org.testng.Assert.*;
 
-public class LoginTest{
+import static com.eon.aqa.qa.xbetPages.DriverFactory.BrowserType.CHROME;
+import static org.testng.Assert.assertNotNull;
+
+public class LoginTest {
 
     DriverFactory.BrowserType type = CHROME;
     MainPageXbetUA mainPageXbetUA;
@@ -80,12 +81,12 @@ public class LoginTest{
 
 
     }
-    @Test(priority = 2)
-    public void logout(){
-        mainPageXbet.clickCloseBanner();
-        mainPageXbet.moveToSpecialCabinet();
-        mainPageXbet.clickLogOut();
-    }
+//    @Test(priority = 2)
+//    public void logout(){
+//        mainPageXbet.moveToSpecialCabinet();
+//        mainPageXbet.clickLogOut();
+//        assertNotNull(mainPageXbetUA.button_main_registration);
+//    }
 
 
 }
