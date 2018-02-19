@@ -1,4 +1,4 @@
-package com.eon.aqa.qa.xbetPages;
+package com.eon.xbet.desc.qa.xbetPages;
 
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;

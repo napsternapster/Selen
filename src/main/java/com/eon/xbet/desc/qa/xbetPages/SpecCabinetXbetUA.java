@@ -1,6 +1,6 @@
-package com.eon.aqa.qa.xbetPages;
+package com.eon.xbet.desc.qa.xbetPages;
 
-import com.eon.aqa.qa.BasePage;
+import com.eon.xbet.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

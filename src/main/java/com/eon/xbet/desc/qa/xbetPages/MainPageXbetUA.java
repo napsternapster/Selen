@@ -1,6 +1,6 @@
-package com.eon.aqa.qa.xbetPages;
+package com.eon.xbet.desc.qa.xbetPages;
 
-import com.eon.aqa.qa.BasePage;
+import com.eon.xbet.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -87,10 +87,29 @@ public class MainPageXbetUA extends BasePage {
 
     }
 
-    public void ByEmailReg(){
+    public void ByEmailRegPos(){
         clickElement(button_By_Email_Reg);
         clickElement(select_Country_ByEmail);
         setElementText(field_Region_ByEmail, "киев");
+        field_Region_ByEmail.sendKeys(Keys.ENTER);
+        setElementText(field_City_ByEmail, "киев");
+        field_City_ByEmail.sendKeys(Keys.ENTER);
+        setElementText(field_Name_ByEmail, "Denis");
+        clickElement(field_Surname_ByEmail);
+        setElementText(field_Surname_ByEmail, "Deni");
+        clickElement(field_Password_ByEmail);
+        setElementText(field_Password_ByEmail, "Garbage2018");
+        clickElement(field_PasswordRe_ByEmail);
+        setElementText(field_PasswordRe_ByEmail, "Garbage2018");
+        clickElement(field_Telephone_ByEmail);
+        setElementText(field_Telephone_ByEmail, "5554444");
+
+    }
+
+    public void ByEmailRegNegNoFields(){
+        clickElement(button_By_Email_Reg);
+        clickElement(select_Country_ByEmail);
+        setElementText(field_Region_ByEmail, "s");
         field_Region_ByEmail.sendKeys(Keys.ENTER);
         setElementText(field_City_ByEmail, "киев");
         field_City_ByEmail.sendKeys(Keys.ENTER);

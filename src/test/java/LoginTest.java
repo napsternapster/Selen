@@ -1,7 +1,7 @@
-import com.eon.aqa.qa.data.GetScreenShot;
-import com.eon.aqa.qa.xbetPages.DriverFactory;
-import com.eon.aqa.qa.xbetPages.MainPageXbet;
-import com.eon.aqa.qa.xbetPages.MainPageXbetUA;
+import com.eon.xbet.data.GetScreenShot;
+import com.eon.xbet.desc.qa.xbetPages.DriverFactory;
+import com.eon.xbet.desc.qa.xbetPages.MainPageXbet;
+import com.eon.xbet.desc.qa.xbetPages.MainPageXbetUA;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import static com.eon.aqa.qa.xbetPages.DriverFactory.BrowserType.CHROME;
+import static com.eon.xbet.desc.qa.xbetPages.DriverFactory.BrowserType.CHROME;
 import static org.testng.Assert.assertNotNull;
 
 public class LoginTest {

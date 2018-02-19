@@ -1,4 +1,4 @@
-package com.eon.aqa.qa.data;
+package com.eon.xbet.data;
 import java.io.File;
 import java.io.IOException;
 import org.apache.commons.io.FileUtils;

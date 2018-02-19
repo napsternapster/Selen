@@ -1,4 +1,4 @@
-package com.eon.aqa.qa;
+package com.eon.xbet;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -7,18 +7,28 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.testng.Assert.assertEquals;
 
-public class BasePage {
-        public String PAGE_URL;
-        public String PAGE_TITLE;
-        public WebDriver driver;
+    public class BasePage {
+        public static String PAGE_URL;
+        public static String PAGE_TITLE;
+        public static WebDriver driver;
         public WebDriverWait wait;
 
-        public BasePage(WebDriver driver) {this.driver = driver;}
+//         public enum Sites {
+//                UA,
+//                CN,
+//                CM,
+//                IR,
+//                KZ
+//            }
 
         public void loadPage(){
             driver.get(getPAGE_URL());
             assertEquals(driver.getTitle(), getPAGE_TITLE());
         }
+
+        public BasePage(WebDriver driver) {this.driver = driver;}
+
+
 
         public void clickElement(WebElement element){element.click();}
 
@@ -34,9 +44,9 @@ public class BasePage {
             select.selectByValue(value);
         }
 
-        public String getPAGE_URL() {return PAGE_URL;}
+        public static String getPAGE_URL() {return PAGE_URL;}
 
-        public String getPAGE_TITLE() {return PAGE_TITLE;}
+        public static String getPAGE_TITLE() {return PAGE_TITLE;}
 
     public boolean isElementPresent(WebElement element) {
         try {
@@ -67,6 +77,9 @@ public class BasePage {
                     .executeScript("arguments[0].scrollIntoView(true);", el);
         }
     }
+
+
+
 
 
 }

@@ -1,13 +1,9 @@
-package com.eon.aqa.qa.xbetPages;
+package com.eon.xbet.desc.qa.xbetPages;
 
-import com.eon.aqa.qa.BasePage;
+import com.eon.xbet.BasePage;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 import java.util.List;
 
@@ -32,7 +28,8 @@ public class MainPageXbet extends BasePage {
     @FindBy(className = "paymentsTLBut") WebElement button_paymant;
     @FindBy(className = "callbackTLBut") WebElement button_callback;
     @FindBy(xpath = ".//*[@id='user-money']/div/div/a/div") WebElement field_balance_acc;
-    @FindBy(xpath = ".//*[@id='wednesdayX2']/div[1]") WebElement closeBanner_button;
+    @FindBy(xpath = ".//*[@id='wednesdayX2']/div[1]") WebElement closeBannerWednesday_button;
+    @FindBy(css = ".olympic-pop-close.arcticmodal-close") WebElement closeBannerOlympic_button;
     @FindBy(className = "up-funds-button-green") WebElement button_donate_green;
     @FindBy(id = "uMessage") WebElement button_message_top;
     public @FindBy(xpath = ".//*[@id='loginout']/span[3]/a")  WebElement button_special_cabinet;
@@ -148,7 +145,7 @@ public class MainPageXbet extends BasePage {
    @FindBy(xpath = ".//*[@id='allSport']/div//a") List<WebElement> allSport;
 
 //---------------------------------------------------------------------//
-    @FindBy(xpath = "//*[@id=\"loc_info\"]/div[2]/a[4]/b/text()") WebElement bonus_button;
+    @FindBy(xpath = "//*[@id=\"loc_info\"]/div[2]/a[4]/b") WebElement bonus_button;
 
 
     public void login(String email, String password){
@@ -202,7 +199,7 @@ public class MainPageXbet extends BasePage {
     }
 
     public void clickCloseBanner(){
-        clickElement(closeBanner_button);
+        clickElement(closeBannerOlympic_button);
     }
 
     public void cliclLivePage(){
@@ -210,8 +207,8 @@ public class MainPageXbet extends BasePage {
     }
 
     public void checkBonus(){
-        bonus_button.getText();
-        assertEquals(bonus_button.getText(), "UAH");
+        assertEquals(bonus_button.getText(), "3000 UAH\n" +
+                "БОНУС");
     }
 
     public void checkTopMenu() throws InterruptedException {
