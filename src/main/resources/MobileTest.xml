@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="1xbetMob Tests">
+    <test name="Test 1">
+        <classes>
+            <class name="com.eon.xbet.mobile.testsMobile.LoginMobileTest"/>
+        </classes>
+    </test>
+    <test name="Test 2">
+        <classes>
+            <class name="com.eon.xbet.mobile.testsMobile.RegMobileTest"/>
+        </classes>
+    </test>
+    <test name="Test 3">
+        <classes>
+            <class name="com.eon.xbet.mobile.testsMobile.FirstDepositTest"/>
+        </classes>
+    </test>
+    <test name="Test 4">
+        <classes>
+            <class name="com.eon.xbet.mobile.testsMobile.BetTestMobile"/>
+        </classes>
+    </test>
+</suite>
